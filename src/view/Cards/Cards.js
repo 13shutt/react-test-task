@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner'
-import Card from '../../components/Card'
+import Card from 'components/Card'
+import Wrapper from 'components/Wrapper'
 
 class Cards extends Component {
 
@@ -10,20 +11,20 @@ class Cards extends Component {
 
   render() {
     return (
-      <div>
+      <Wrapper main>
 
         {this.props.loading === true 
           ? <Loader type="Oval" color="orange" height={120} width={120} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-          : <section>
+          : <Wrapper cards>
               {this.props.data.map(item => ( 
                 <Card 
                   key={item.id}
                   item={item}
                 />
               ))}
-            </section>}
+            </Wrapper>}
       
-      </div>
+      </Wrapper>
     )
   }
 }
