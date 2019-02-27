@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Loader from 'react-loader-spinner'
+import Card from '../../components/Card'
 
-class Posts extends Component {
+class Cards extends Component {
 
   componentDidMount() {
     this.props.actions.fetchData()
@@ -10,15 +11,21 @@ class Posts extends Component {
   render() {
     return (
       <div>
-      {this.props.data === [] ? (<button>FETCH DATA</button>) : null                                                                                                          }
-      {this.props.loading === true 
-        ? <Loader type="Oval" color="orange" height={120} width={120} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-        : <section>
-            <h1>start</h1>
-          </section>}
+
+        {this.props.loading === true 
+          ? <Loader type="Oval" color="orange" height={120} width={120} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+          : <section>
+              {this.props.data.map(item => ( 
+                <Card 
+                  key={item.id}
+                  item={item}
+                />
+              ))}
+            </section>}
+      
       </div>
     )
   }
 }
 
-export default Posts                                                                         
+export default Cards                                                                         

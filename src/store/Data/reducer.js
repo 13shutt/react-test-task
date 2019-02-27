@@ -17,7 +17,7 @@ function dataReducer(state = initialState, action) {
     case FETCH_SUCCESS:
     console.log('success', action.payload)
     return {
-      data: action.payload,
+      data: action.payload.data,
       loading: false
     };
 
